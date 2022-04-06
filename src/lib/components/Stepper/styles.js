@@ -2,45 +2,44 @@ import { resolve } from '$lib/helpers'
 
 export let stepperStyles = props => {
   return [
-    { classes: 'w-full flex' },
-    { on: [props.direction, 'vertical'], classes: 'flex-col' },
-    { on: [props.direction, 'horizontal'], classes: 'flex-row' },
+    { classes: ' },
+    { on: [props.direction, 'vertical'], classes: '' },
+    { on: [props.direction, 'horizontal'], classes: '' },
   ]
 }
 
 export let stepStyles = props => {
   return [
     {
-      classes:
-        'rounded-lg transition duration-300 ease-out cursor-pointer ring-1 ring-secondary ring-opacity-50',
+      classes: '',
     },
     {
       on: [props.direction, 'vertical'],
-      classes: 'w-1.5 h-full max-h-[100px]',
+      classes: '',
     },
     {
       on: [props.direction, 'horizontal'],
-      classes: 'h-1.5 w-full inline-block max-w-[100px]',
+      classes: '',
     },
   ]
 }
 
 export let activeStyles = props => {
   return [
-    { classes: 'bg-accent z-20' },
-    { on: [props.direction, 'vertical'], classes: 'scale-y-[150%]' },
+    { classes: '' },
+    { on: [props.direction, 'vertical'], classes: '' },
     {
       on: [props.direction, 'horizontal'],
-      classes: 'scale-x-[150%]',
+      classes: '',
     },
   ]
 }
 
 export let inactiveStyles = props => {
   return [
-    { classes: 'bg-primary z-10' },
-    { on: [props.direction, 'vertical'], classes: 'scale-100' },
-    { on: [props.direction, 'horizontal'], classes: 'scale-100' },
+    { classes: '' },
+    { on: [props.direction, 'vertical'], classes: '' },
+    { on: [props.direction, 'horizontal'], classes: '' },
   ]
 }
 

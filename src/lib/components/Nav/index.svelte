@@ -12,9 +12,6 @@
 
   import { clickOutside } from '$lib/actions'
 
-  import { fly } from 'svelte/transition'
-  import { number } from '$lib/stores'
-
   let active = false
   const toggle = () => (active = !active)
 

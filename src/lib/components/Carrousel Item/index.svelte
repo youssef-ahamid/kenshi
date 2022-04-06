@@ -9,6 +9,7 @@
   export let mobile = false // *, selection state
   export let remaining = 0 // *, carrousel steps to reach item
   export let className = '' // *, custom wrapper classes
+  export let styleOptions = {}
 
   import Go from '$lib/components/Go/index.svelte'
   import Button from '$lib/components/Button/index.svelte'
@@ -34,21 +35,31 @@
     else dispatch('depreview')
   }
 
-  $: type = mobile ? 'overlay' : 'card'
-
   /* styles */
-  import { config } from './styles'
-  $: classes = config({ selected, previewed, remaining })
+  import { stylus } from '$lib/helpers'
+  import {
+    carrouselWrapper,
+    carrouselItemThumbnail,
+    carrouselItemInfoContainer,
+    carrouselItemLogos,
+    carrouselItemLogo,
+  } from './styles'
+
+  $: wrapper = stylus(carrouselWrapper(styleOptions))
+  $: thumb = stylus(carrouselItemThumbnail(styleOptions))
+  $: infoContainer = stylus(carrouselItemInfoContainer(styleOptions))
+  $: logos = stylus(carrouselItemLogos(styleOptions))
+  $: logo = stylus(carrouselItemLogo(styleOptions))
 </script>
 
-<div class={`${classes.carrouselItemWrapper} ${className}`}>
-  <Image {...thumbnail} {type} className={classes.thumbnail} />
+<div class={`${wrapper.classes} ${className}`}>
+  <Image {...thumbnail} {type} className={thumb.classes} />
 
-  <div class={classes.infoContainer}>
-    <div class={classes.logos}>
+  <div class={infoContainer.classes}>
+    <div class={logos.classes}>
       {#if images.length > 0}
         {#each images as img}
-          <img src={img.url} alt={title} class={classes.logo} />
+          <img src={img.url} alt={title} class={logo.classes} />
         {/each}
       {/if}
     </div>

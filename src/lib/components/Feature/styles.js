@@ -4,16 +4,16 @@ export let feature = options => {
   return [
     {
       classes:
-        'flex flex-nowrap w-full max-w-6xl mx-auto my-6 lg:my-12',
+        '',
     },
     {
       on: [options.reverse, true],
       classes:
-        'flex-col items-end lg:items-start lg:flex-row-reverse',
+        '',
     },
     {
       on: [options.reverse, false],
-      classes: 'flex-col items-start lg:flex-row',
+      classes: '',
     },
   ]
 }
@@ -21,15 +21,15 @@ export let feature = options => {
 export let left = options => {
   return [
     {
-      classes: 'w-full lg:w-1/2 flex',
+      classes: '',
     },
     {
       on: [options.reverse, true],
-      classes: 'justify-end items-end lg:justify-end',
+      classes: '',
     },
     {
       on: [options.reverse, false],
-      classes: 'justify-start lg:justify-start',
+      classes: '',
     },
   ]
 }
@@ -37,7 +37,7 @@ export let left = options => {
 export let right = options => {
   return [
     {
-      classes: 'w-full lg:min-w-[50%] lg:max-w-[60%] mx-auto p-6 flex flex-col',
+      classes: '',
     },
   ]
 }
@@ -45,7 +45,7 @@ export let right = options => {
 export let image = options => {
   return [
     {
-      classes: 'h-10 inline-block w-auto mr-3',
+      classes: '',
     },
   ]
 }

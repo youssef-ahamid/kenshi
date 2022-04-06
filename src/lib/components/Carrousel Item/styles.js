@@ -1,80 +1,74 @@
-import { resolve } from '$lib/helpers'
-
-export let carrouselItemWrapper = options => {
+export const carrouselItemWrapper = props => {
   return [
     {
-      classes:
-        'absolute overflow-hidden inset-0 flex flex-wrap md:flex-nowrap items-center justify-center transition duration-500 ease-out w-full',
+      classes: '',
+      styles: '',
+      on: true, // default
     },
-    {
-      on: [options.previewed, true],
-      classes: 'opacity-100 delay-1000',
-    },
-    {
-      on: [options.previewed, false],
-      classes: 'opacity-0',
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let infoContainer = options => {
+export const carrouselItemThumbnail = props => {
   return [
     {
-      classes:
-        'overflow-hidden -mt-80 md:mt-0 transition origin-bottom-left space-y-2 delay-200 duration-400 z-50 ease-out flex flex-col w-[80%] md:pl-[10%] justify-center md:w-1/2 pl-3',
+      classes: '',
+      styles: '',
+      on: true, // default
     },
-    {
-      on: [options.previewed, true],
-      classes: 'transform-none',
-    },
-    {
-      on: [options.previewed, false],
-      classes: 'translate-y-4 md:translate-y-1 md:translate-x-12',
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let thumbnail = options => {
+export const carrouselItemInfoContainer = props => {
   return [
     {
-      classes:
-        'w-full md:w-1/3 transition duration-300 z-50 ease-out',
+      classes: '',
+      styles: '',
+      on: true, // default
     },
-    {
-      on: [options.previewed, true],
-      classes: 'transform-none',
-    },
-    {
-      on: [options.previewed, false],
-      classes: '-translate-y-4 md:translate-y-1 md:-translate-x-12',
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let logo = options => {
+export const carrouselItemLogos = props => {
   return [
     {
-      classes: 'h-10 w-auto block mr-3',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let logos = options => {
+export const carrouselItemLogo = props => {
   return [
     {
-      classes: 'flex items-center',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
-}
-
-let options
-export const config = props => {
-  options = props
-  return {
-    carrouselItemWrapper: resolve(carrouselItemWrapper(options)),
-    infoContainer: resolve(infoContainer(options)),
-    logo: resolve(logo(options)),
-    logos: resolve(logos(options)),
-    thumbnail: resolve(thumbnail(options)),
-  }
 }

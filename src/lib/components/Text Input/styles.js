@@ -1,57 +1,75 @@
-import { resolve } from '$lib/helpers'
-
-export let label = options => {
+export const textInputWrapper = props => {
   return [
     {
-      classes: 'font-montserrat py-1 ',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let input = options => {
+export const textInput = props => {
   return [
     {
-      classes:
-        'outline-none appearance-none p-4 pb-1 transition duration-300 ease-out border-b-4 bg-primary bg-opacity-5 focus:bg-opacity-25 text-primary focus:text-accent rounded w-full',
+      classes: '',
+      styles: '',
+      on: true, // default
     },
-    {
-      on: [options.clean, false],
-      classes: 'border-error bg-opacity-[15%] animate-wiggle',
-    },
-    {
-      on: [options.clean, true],
-      classes: 'border-primary focus:border-accent',
-    },
-    {
-      on: [options.type, 'text area'],
-      classes: 'resize-none h-28 md:h-40 w-full min-w-[100%] block',
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let name = options => {
+
+export const textInputName = props => {
   return [
     {
-      classes: 'text-primary capitalize py-0.5',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let error = options => {
+export const textInputError = props => {
   return [
     {
-      classes: 'text-error font-bold',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-let options
-export const config = props => {
-  options = props
-  return {
-    label: resolve(label(options)),
-    input: resolve(input(options)),
-    name: resolve(name(options)),
-    error: resolve(error(options)),
-  }
+export const navSublinkInactive = props => {
+  return [
+    {
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
+    },
+  ]
 }

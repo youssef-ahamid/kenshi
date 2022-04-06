@@ -5,12 +5,12 @@
   /* props */
   export let type = 'text' // *, text area
   export let trim = false // *, true
-  export let long = false // *, true
   export let validations = null // *, array of validation objects
   export let className = '' // *, custom wrapper classes
   export let label = '' // *, label text
   export let placeholder = '' // *, placeholder text
   export let value = '' // *, bound value
+  export let styleOptions = {}
 
   /* data */
   $: validation = assert(validations || [], value)
@@ -26,7 +26,20 @@
 
   /* styles */
   import { config } from './styles'
-  $: classes = config({ type, trim, long, clean })
+  $: classes = config({ type, clean, ...styleOptions })
+  /* styles */
+  import { stylus } from '$lib/helpers'
+  import {
+    textInputWrapper,
+    textInput,
+    textInputName,
+    textInputError,
+  } from './styles'
+
+  $: label = stylus(textInputWrapper({ type, clean, ...styleOptions }))
+  $: input = stylus(textInput({ type, clean, ...styleOptions }))
+  $: name = stylus(textInputName({ type, clean, ...styleOptions }))
+  $: error = stylus(textInputError({ type, clean, ...styleOptions }))
 
   /* transitions */
   import { slide } from 'svelte/transition'
@@ -43,8 +56,8 @@
   const focus = () => dispatch('focus', value)
 </script>
 
-<label class={`${classes.label} + ${className}`} for={label}>
-  <p class={classes.name}>
+<label class={`${label.classes} + ${className}`} for={label}>
+  <p class={name.classes}>
     {label}
     {#if validations && validations
         .map(_ => _.type)
@@ -57,7 +70,7 @@
       bind:value
       {placeholder}
       name={label}
-      class={classes.input}
+      class={input.classes}
       on:focus={focus}
       on:blur={blur}
     />
@@ -66,13 +79,13 @@
       bind:value
       {placeholder}
       name={label}
-      class={classes.input}
+      class={input.classes}
       on:focus={focus}
       on:blur={blur}
     />
   {/if}
   {#if !clean}
-    <h4 transition:slide={{ duration: 300 }} class={classes.error}>
+    <h4 transition:slide={{ duration: 300 }} class={error.classes}>
       {error}
     </h4>
   {/if}

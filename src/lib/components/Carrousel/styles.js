@@ -1,73 +1,105 @@
-import { resolve } from '$lib/helpers'
-
-export let carrouselWrapper = () => {
+export const carrouselWrapper = props => {
   return [
     {
-      classes: 'h-full w-full overflow-x-hidden',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let carrousel = () => {
+export const carrousel = props => {
   return [
     {
-      classes:
-        'flex flex-nowrap transition duration-300 ease-out pb-12 justify-center items-center',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let carrouselItem = () => {
+export const carrouselItem = props => {
   return [
     {
-      classes: 'mx-auto',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let controls = () => {
+export const carrouselControls = props => {
   return [
     {
-      classes:
-        'pt-12 px-8 fixed bottom-[5%] md:top-4 md:bottom-auto left-0 right-0 md:right-8 flex flex-col md:items-end md:justify-end items-center center',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let buttons = () => {
+export const carrouselStepper = props => {
   return [
     {
-      classes:
-        'flex w-full justify-between md:justify-end items-center',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let button = () => {
+export const carrouselButtons = props => {
   return [
     {
-      classes: 'md:ml-6',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export let stepper = () => {
+export const carrouselButton = props => {
   return [
     {
-      classes:
-        'w-full min-w-[300px] max-w-[460px] mx-auto flex justify-center md:mx-0 md:justify-end',
+      classes: '',
+      styles: '',
+      on: true, // default
+    },
+    { 
+      classes: '', 
+      styles: '', 
+      on: props.type == 'primary' 
     },
   ]
 }
 
-export const config = props => {
-  return {
-    carrouselWrapper: resolve(carrouselWrapper()),
-    carrousel: resolve(carrousel()),
-    carrouselItem: resolve(carrouselItem()),
-    controls: resolve(controls()),
-    buttons: resolve(buttons()),
-    button: resolve(button()),
-    stepper: resolve(stepper()),
-  }
-}

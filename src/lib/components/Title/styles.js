@@ -1,20 +1,19 @@
 import { resolve } from '$lib/helpers'
 
 export let titleWrapper = props => {
-  return [{ classes: 'w-full flex items-center' }]
+  return [{ classes: '' }]
 }
 
 export let line = props => {
   return [
     {
-      classes:
-        'rounded-br-full rounded-tr-full w-36 md:w-80 bg-primary h-1 mr-3',
+      classes: '',
     },
   ]
 }
 
 export let title = props => {
-  return [{ classes: 'leading-0' }]
+  return [{ classes: '' }]
 }
 
 let options

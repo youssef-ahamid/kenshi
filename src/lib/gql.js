@@ -4,10 +4,10 @@ export const graphcms = new GraphQLClient(
   import.meta.env.VITE_GRAPHCMS_URL
 )
 
-export async function getBios() {
+export async function exampleQuery() {
   const query = gql`
     {
-      bios {
+      projects {
         image {
           url(
             transformation: { document: { output: { format: png } } }
@@ -19,54 +19,6 @@ export async function getBios() {
       }
     }
   `
-  const { bios } = await graphcms.request(query)
-  return bios
-}
-
-export async function getProjects(limit = 15) {
-  const query = gql`
-    {
-      projects(first: ${limit}) {
-        thumbnail {
-          url(
-            transformation: { document: { output: { format: jpg } } }
-          )
-        }
-        text
-        title
-        videoUrl
-        clientLogos {
-          url(
-            transformation: { document: { output: { format: png } } }
-          )
-        }
-      }
-    }
-  `
   const { projects } = await graphcms.request(query)
   return projects
-}
-
-export async function getContact() {
-  const query = gql`
-    {
-      contacts {
-        anghami
-        copyright
-        siteEmail
-        facebook
-        instagram
-        linkedin
-        twitter
-        location
-        siteOwner
-        siteName
-        soundcloud
-        spotify
-        thankYou
-      }
-    }
-  `
-  const { contacts } = await graphcms.request(query)
-  return contacts[0]
 }

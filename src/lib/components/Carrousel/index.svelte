@@ -3,6 +3,7 @@
   export let items = [] // *, array of carrousel items
   export let currentStep
   export let className = '' // *, custom wrapper classes
+  export let styleOptions = {}
 
   import CarrouselItem from '$lib/components/Carrousel Item/index.svelte'
   import List from '$lib/components/List/index.svelte'
@@ -48,9 +49,24 @@
 
   $: select(currentStep)
 
-  import { config } from './styles'
-  $: classes = config()
+  /* styles */
+  import { stylus } from '$lib/helpers'
+  import {
+    carrouselWrapper,
+    carrouselItem,
+    carrouselControls,
+    carrouselStepper,
+    carrouselButtons,
+    carrouselButton,
+  } from './styles'
 
+  $: wrapper = stylus(carrouselWrapper(styleOptions))
+  $: cItem = stylus(carrouselItem(styleOptions))
+  $: controls = stylus(carrouselControls(styleOptions))
+  $: stepper = stylus(carrouselStepper(styleOptions))
+  $: buttons = stylus(carrouselButtons(styleOptions))
+  $: button = stylus(carrouselButton(styleOptions))
+  
   onMount(() => {
     dispatch('rewatch')
   })
@@ -61,11 +77,11 @@
 
 <svelte:window bind:outerWidth={screenWidth} />
 
-<div class={`${classes.carrouselWrapper} ${className}`}>
-  <List {items} let:prop={item} className={classes.carrousel}>
+<div class={`${wrapper.classes} ${className}`} style={wrapper.styles}>
+  <List {items} let:prop={item} className={carrousel.classes}>
     <div
       bind:this={carrouselItems[items.indexOf(item)]}
-      class={classes.carrouselItem}
+      class={cItem.classes}
     >
       <CarrouselItem
         {...item}
@@ -77,20 +93,20 @@
       />
     </div>
   </List>
-  {#key currentStep }
-    <div class={classes.controls}>
-        <Stepper
-          direction="horizontal"
-          steps={items.length}
-          bind:active={currentStep}
-          className={classes.stepper}
-        />
-      <div class={classes.buttons}>
+  {#key currentStep}
+    <div class={controls.classes}>
+      <Stepper
+        direction="horizontal"
+        steps={items.length}
+        bind:active={currentStep}
+        className={stepper.classes}
+      />
+      <div class={buttons.classes}>
         <Button
           label="prev"
           shape="ghost"
           on:click={prev}
-          className={`${classes.button} ${
+          className={`${button.classes} ${
             currentStep === 0 ? 'opacity-0' : 'opacity-100'
           }`}
         />
@@ -98,8 +114,10 @@
           label="next"
           shape="ghost"
           on:click={next}
-          className={`${classes.button} ${
-            currentStep === items.length - 1 ? 'opacity-0' : 'opacity-100'
+          className={`${button.classes} ${
+            currentStep === items.length - 1
+              ? 'opacity-0'
+              : 'opacity-100'
           }`}
         />
       </div>

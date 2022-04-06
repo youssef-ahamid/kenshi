@@ -3,15 +3,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#e4d8b4',
-        secondary: '#272324',
-        accent: '#e2cd6d',
+        primary: '#000000',
+        secondary: '#ffffff',
+        accent: '#f9f614',
         error: '#e86f68',
       },
       fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'],
+        heading: ['Montserrat', 'sans-serif'],
         body: ['Helvetica', 'sans-serif'],
-        poppins: ['Poppins', 'sans-serif'],
       },
       keyframes: {
         wiggle: {

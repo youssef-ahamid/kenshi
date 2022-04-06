@@ -1,4 +1,3 @@
-export const siteUrl = 'https://shereef-mostafa.vercel.app/'
+export const siteUrl = ''
 export const siteLanguage = 'en'
-export const siteTitle =
-  'Shereef Mostafa'
+export const siteTitle = 'kenshi - blazing fast development'

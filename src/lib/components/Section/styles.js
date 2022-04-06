@@ -3,7 +3,7 @@ import { resolve } from '$lib/helpers'
 export let section = options => {
   return [
     {
-      classes: 'py-4 md:py-8',
+      classes: '',
     },
   ]
 }
@@ -12,7 +12,7 @@ export let content = options => {
   return [
     {
       on: [options.noContain, false],
-      classes: 'md:max-w-[80%] mx-auto overflow-visible',
+      classes: 'e',
     },
   ]
 }
@@ -20,7 +20,7 @@ export let content = options => {
 export let ctaContainer = options => {
   return [
     {
-      classes: 'w-full flex justify-center',
+      classes: '',
     },
   ]
 }
